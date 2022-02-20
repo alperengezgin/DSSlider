@@ -328,6 +328,8 @@ public class DSSlider: UIView {
     guard isDoubleSideEnabled else { return }
     guard isImageViewRotating else { return }
     sliderImageView.transform = CGAffineTransform(rotationAngle: angle)
+      let doubleAngle = Double(angle)
+      self.delegate?.sliderCurrentAngleDidChange(self, for: doubleAngle)
   }
 
   @objc private func handlePanGesture(_ sender: UIPanGestureRecognizer) {
